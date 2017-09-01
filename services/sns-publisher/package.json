@@ -1,0 +1,38 @@
+{
+    "name": "sns-publisher",
+    "version": "0.0.1",
+    "description": "Serverless service for publishing events to SNS Topic.",
+    "author": "Roman Borysenok",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/barfet/sns-lambda.git"
+    },
+    "bugs": {
+      "url": "https://github.com/barfet/sns-lambda/issues"
+    },
+    "homepage": "https://github.com/barfet/sns-lambda#readme",
+    "dependencies": {
+      "aws-sdk": "^2.94.0"
+    },
+    "devDependencies": {
+      "@types/aws-sdk": "^0.0.42",
+      "rimraf": "^2.6.1",
+      "serverless": "^1.19.0",
+      "serverless-offline": "^3.14.0",
+      "serverless-plugin-tracing": "^1.0.6",
+      "serverless-webpack": "^2.2.0",
+      "ts-loader": "^2.0.3",
+      "ts-node": "^3.0.2",
+      "typescript": "^2.2.2",
+      "webpack": "^2.3.2",
+      "webpack-merge": "^4.1.0",
+      "webpack-node-externals": "^1.5.4"
+    },
+    "scripts": {
+      "clean": "rimraf build",
+      "build": "npm run clean && tsc --pretty",
+      "watch:test": "npm run test -- --watch"
+    }
+}
+  

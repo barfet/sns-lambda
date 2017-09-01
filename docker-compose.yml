@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+
+  nginx:
+    image: jwilder/nginx-proxy:0.6.0
+    container_name: northstar-nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+    ports:
+      - "80:80"
+    environment:
+      - DEFAULT_HOST=publisher.borysenok.com
+    networks:
+      - dev   
+
+  sns-publisher:
+    build:
+      context: ./services/sns-publisher/.
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: sns-publisher
+    container_name: sns-publisher
+    volumes:
+      - ./services/sns-publisher:/usr/src/app
+    env_file:
+      - ./.env.dev
+    expose:
+      - "3000"
+    environment:
+      - VIRTUAL_HOST=sns-publisher.borysenok.com
+      - VIRTUAL_PORT=3000
+      - SLS_DEBUG=true
+      - http_proxy
+      - https_proxy
+      - no_proxy
+    networks:
+      - dev
+
+networks:  
+  dev:
+    driver: bridge
