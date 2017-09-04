@@ -11,7 +11,8 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 EXPOSE 3000
+EXPOSE 8080
 
 ENTRYPOINT ["/bin/sh", "-c"]
 
-CMD ["yarn install && WEBPACK_CONFIG_TYPE=local sls offline"]
+CMD ["yarn install && WEBPACK_CONFIG_TYPE=local node-debug --web-host 0.0.0.0 node_modules/.bin/serverless offline start"]
