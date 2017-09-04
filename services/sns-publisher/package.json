@@ -27,7 +27,8 @@
       "typescript": "^2.2.2",
       "webpack": "^2.3.2",
       "webpack-merge": "^4.1.0",
-      "webpack-node-externals": "^1.5.4"
+      "webpack-node-externals": "^1.5.4",
+      "friendly-errors-webpack-plugin": "^1.6.1"
     },
     "scripts": {
       "clean": "rimraf build",

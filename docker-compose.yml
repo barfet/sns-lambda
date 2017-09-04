@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - DEFAULT_HOST=publisher.borysenok.com
+      - DEFAULT_HOST=sns-publisher.borysenok.com
     networks:
       - dev   
 
