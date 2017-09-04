@@ -7,8 +7,8 @@ export function publishSnsEventHandler(event, context) {
         
         let sns = new AWS.SNS();
         let params : AWS.SNS.Types.PublishInput = {
-            Message: event.path, 
-            Subject: "event.pathParameter",
+            Message: event.pathParameters.event, 
+            Subject: event.body,
             TopicArn: process.env.SNS_TOPIC_ARN
         };
         sns.publish(params, context.done);

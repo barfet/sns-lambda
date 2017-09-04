@@ -26,7 +26,7 @@ services:
     volumes:
       - ./services/sns-publisher:/usr/src/app
     env_file:
-      - ./.env.dev
+      - ${OneDrive}\Projects\sns-lambda\.env.dev
     expose:
       - "3000"
     ports:
