@@ -3,7 +3,7 @@ import * as AWS from 'aws-sdk';
 export function publishSnsEventHandler(event, context) {
     try {
         let eventText = JSON.stringify(event, null, 2);
-        console.log("Received dgdfshsfh:", eventText);
+        console.log("Received kuhug:", eventText);
         
         let sns = new AWS.SNS();
         let params : AWS.SNS.Types.PublishInput = {

@@ -41,6 +41,34 @@ services:
     networks:
       - dev
 
+  publisher:
+    build:
+      context: ./services/publisher/.
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: publisher
+    container_name: publisher
+    volumes:
+      - ./services/publisher:/server
+    env_file:
+      - ${OneDrive}\Projects\sns-lambda\.env.dev
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+      - "5858:5858"
+    environment:
+      - VIRTUAL_HOST=publisher.borysenok.com
+      - VIRTUAL_PORT=3000
+      - SLS_DEBUG=true
+      - http_proxy
+      - https_proxy
+      - no_proxy
+    networks:
+      - dev
+
 networks:  
   dev:
     driver: bridge

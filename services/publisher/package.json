@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "tsc -p ./",
     "watch": "tsc -w -p ./",
-    "debug": "nodemon --legacy-watch --watch ./.build/src/** --debug=0.0.0.0:5858 --nolazy node_modules/.bin/serverless offline start",
+    "debug": "nodemon --legacy-watch --watch ./.build/src/**/*.js --debug=0.0.0.0:5858 --nolazy node_modules/.bin/serverless offline start",
     "docker-debug": "docker-compose up",
     "start": "node ./.build/index.js",
     "x": "tsc"

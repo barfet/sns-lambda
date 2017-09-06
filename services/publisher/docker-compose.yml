@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    command: npm run debug
+    image: publisher
+    container_name: publisher
+    volumes:
+      - ./:/server
+    env_file:
+      - ${OneDrive}\Projects\sns-lambda\.env.dev
+    ports:
+      - "3000:3000"
+      - "5858:5858"
+    environment:
+      - SLS_DEBUG=true
+    networks:
+      - dev
+
+networks:  
+  dev:
+    driver: bridge
